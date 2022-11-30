@@ -1,5 +1,5 @@
 # Fairness-and-Explainability-CFA
-This repository contains source code for CFA and explanation fairness evaluation proposed in "Fairness and Explainability: Bridging the Gap Towards Fair Model Explanations".
+This repository is the implementation of our proposed Comprehensive Fairness Algorithm (CFA) and our two explanation fairness evaluation metrics proposed in "Fairness and Explainability: Bridging the Gap Towards Fair Model Explanations".
 
 ## Motivation
 
