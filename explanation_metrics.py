@@ -2,10 +2,7 @@ import torch
 import time
 import numpy as np
 import torch.nn.functional as F
-from captum.attr import *
 from sklearn.metrics import accuracy_score
-import lime
-import lime.lime_tabular
 import torch.nn as nn
 from sklearn.linear_model import LassoLars, LinearRegression
 from torch_geometric.nn import MessagePassing
@@ -36,7 +33,7 @@ class GraphLIME_speedup:
     def __init_predict__(self, model, **kwargs):
         model.eval()
         with torch.no_grad():
-            _, logits = model(x=self.X, edge_index=self.edge_index, **kwargs)
+            _, logits = model(x=self.X, **kwargs)
             probas = nn.Softmax(dim=1)(logits) # transform to probability
         return probas
     

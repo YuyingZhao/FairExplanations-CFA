@@ -20,6 +20,7 @@ import pickle
 import random
 from explanation_metrics import *
 from parse import *
+import os
 
 def train(epoch, model, max_score):
     model.train()
@@ -76,6 +77,13 @@ if __name__ == '__main__':
     args = parse_args()
     args.cuda = not args.no_cuda and torch.cuda.is_available()
     seed_everything(args.seed)
+
+    if not os.path.exists("./weights"):
+        os.makedirs("./weights")
+        print("The new directory [weights] is created for saving the model weights.")
+    if not os.path.exists("./test_logs"):
+        os.makedirs("./test_logs")
+        print("The new directory [test_logs] is created for saving the test logs.")
 
     if args.dataset == "german":
         best_hyper_parameters = [[0.01, 0.001, 0.5, 10.0], \

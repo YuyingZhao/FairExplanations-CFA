@@ -77,6 +77,11 @@ if __name__ == '__main__':
     args.cuda = not args.no_cuda and torch.cuda.is_available()
     seed_everything(args.seed)
 
+    train_log_path = "./train_logs/"+args.dataset
+    if not os.path.exists(train_log_path):
+        os.makedirs(train_log_path)
+        print("The new directory is created for saving the training logs.")
+
     # load dataset
     adj, features, labels, idx_train, idx_val, idx_test, sens = load_data_util(args.dataset)
     adj_ori = adj
